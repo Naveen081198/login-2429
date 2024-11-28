@@ -12,7 +12,7 @@ resource "aws_subnet" "public_subnets" {
   vpc_id     = aws_vpc.vpc.id
   for_each   = var.public_subnet_cidrs
   cidr_block = each.value
-  availability_zone = "us-west-2a"
+  availability_zone = "ap-south-1a"
   map_public_ip_on_launch = "true"
 
   tags = {
@@ -24,7 +24,7 @@ resource "aws_subnet" "public_subnets" {
 resource "aws_subnet" "login-db-sn" {
   vpc_id     = aws_vpc.vpc.id
   cidr_block = var.private_subnet_cidr
-  availability_zone = "us-west-2c"
+  availability_zone = "ap-south-1b"
   map_public_ip_on_launch = "false"
 
   tags = {
